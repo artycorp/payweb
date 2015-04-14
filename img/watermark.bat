@@ -1,0 +1,5 @@
+c:\ImageMagick-6.9.1-1-Q16-x86-windows\ImageMagick-6.9.1-1\convert -size 350x50 xc:grey30 -font Arial -pointsize 32 -gravity center -draw "fill grey70  text 0,0 '%~1'" stamp_fgnd.png
+c:\ImageMagick-6.9.1-1-Q16-x86-windows\ImageMagick-6.9.1-1\convert -size 350x50 xc:black -font Arial -pointsize 32 -gravity center -draw "fill white  text  1,1  '%~1' text  0,0  '%~1' fill black  text -1,-1 '%~1'" +matte stamp_mask.png
+c:\ImageMagick-6.9.1-1-Q16-x86-windows\ImageMagick-6.9.1-1\composite -compose CopyOpacity  stamp_mask.png  stamp_fgnd.png  stamp.png 
+c:\ImageMagick-6.9.1-1-Q16-x86-windows\ImageMagick-6.9.1-1\mogrify -trim +repage stamp.png
+c:\ImageMagick-6.9.1-1-Q16-x86-windows\ImageMagick-6.9.1-1\convert -size 180x80 xc:none -fill grey -gravity NorthWest -draw "text 10,10 '%~1'" -gravity SouthEast -draw "text 5,15 '%~1'" miff:- |c:\ImageMagick-6.9.1-1-Q16-x86-windows\ImageMagick-6.9.1-1\composite -tile - %2  wmark_text_tiled.jpg
